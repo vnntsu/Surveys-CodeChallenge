@@ -1,6 +1,6 @@
 # Surveys
 
-
+[![Build Status](https://travis-ci.com/vnntsu/Surveys-CodeChallenge.svg?branch=master)](https://travis-ci.com/vnntsu/Surveys-CodeChallenge)
 
 ## Getting Started
 
