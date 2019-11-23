@@ -1,0 +1,18 @@
+
+language: objective-c
+osx_image: xcode10.3
+cache:
+  bundler: true
+  cocoapods: true
+  directories:
+    - ~/.rbenv
+    - ~/.cocoapods
+    - ~/Library/Caches/CocoaPods
+    - .bundle
+    - vendor
+install:
+  - set -o pipefail
+  - sudo systemsetup -settimezone Asia/Ho_Chi_Minh
+  - ./scripts/install
+script:
+  - ./scripts/lint
