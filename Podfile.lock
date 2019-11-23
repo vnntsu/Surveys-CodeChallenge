@@ -12,7 +12,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.10)
   - Nimble (~> 8.0)
   - Quick (~> 2.2)
-  - SwiftLint (~> 0.37)
+  - SwiftLint (~> 0.35)
 
 SPEC REPOS:
   trunk:
@@ -29,6 +29,6 @@ SPEC CHECKSUMS:
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
 
-PODFILE CHECKSUM: b2acb186fafd57b0f12ed26dd97f69d8abd0281c
+PODFILE CHECKSUM: 2f7db295e3b217f1b737f72f5d782b4067bed3be
 
 COCOAPODS: 1.8.4
