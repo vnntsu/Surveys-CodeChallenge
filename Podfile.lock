@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (5.0.0-rc.3)
+  - Kingfisher (5.10.1):
+    - Kingfisher/Core (= 5.10.1)
+  - Kingfisher/Core (5.10.1)
+  - Nimble (8.0.4)
+  - Quick (2.2.0)
+  - SwiftLint (0.37.0)
+
+DEPENDENCIES:
+  - Alamofire (= 5.0.0-rc.3)
+  - Kingfisher (~> 5.10)
+  - Nimble (~> 8.0)
+  - Quick (~> 2.2)
+  - SwiftLint (~> 0.37)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - Nimble
+    - Quick
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Kingfisher: eb36b7dfcc78d60877051c92c119a2865972961a
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
+
+PODFILE CHECKSUM: b2acb186fafd57b0f12ed26dd97f69d8abd0281c
+
+COCOAPODS: 1.8.4
