@@ -9,8 +9,18 @@
 import Foundation
 
 extension Define {
-    enum Error: Swift.Error {
+    struct Error { }
+}
+
+// MARK: - Define error
+extension Define.Error {
+    enum Data: Swift.Error {
         case indexOutOfRange
         case notFound
+    }
+
+    enum Service: Swift.Error {
+        case mapping
+        case createURL
     }
 }

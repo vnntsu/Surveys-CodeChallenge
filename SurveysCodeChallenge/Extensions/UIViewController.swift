@@ -23,6 +23,14 @@ extension UIViewController {
     func showAuthor() {
         showAlert(title: Define.title, message: Define.authorName)
     }
+
+    func indicator(shouldShow: Bool) {
+        if shouldShow {
+            ProgressView.show(on: self)
+        } else {
+            ProgressView.hide()
+        }
+    }
 }
 
 private extension Define {

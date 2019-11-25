@@ -18,7 +18,7 @@ final class SurveyCellViewModel {
         return survey.description.trimmed
     }
     var imagePath: String {
-        return survey.coverImageURL
+        return survey.coverImageURL + "l"
     }
 
     init(survey: Survey) {

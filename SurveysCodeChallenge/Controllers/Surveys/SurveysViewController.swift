@@ -56,7 +56,15 @@ final class SurveysViewController: UIViewController {
 
     private func updateUI() {
         collectionView.reloadData()
-        pageControl.numberOfPages = viewModel.numberOfItems(in: 0)
+        pageControl.numberOfPages = viewModel.numberOfItems()
+        takeSurveyButton.isHidden = viewModel.numberOfItems() <= 0
+    }
+
+    private func refreshUI() {
+        collectionView.reloadData()
+        collectionView.setContentOffset(.zero, animated: false)
+        pageControl.numberOfPages = viewModel.numberOfItems()
+        takeSurveyButton.isHidden = viewModel.numberOfItems() <= 0
     }
 }
 
@@ -76,8 +84,13 @@ extension SurveysViewController: SurveysViewModelDelegate {
     func viewModel(_ viewModel: SurveysViewModel, needsPerform actions: SurveysViewModel.Action) {
         switch actions {
         case .didFetch:
+            refreshUI()
+        case .didLoadMore:
             updateUI()
-        default: break
+        case .didFail(let error):
+            showError(error)
+        case .showLoading(let isShow):
+            indicator(shouldShow: isShow)
         }
     }
 }
@@ -88,6 +101,12 @@ extension SurveysViewController: UICollectionViewDelegate {
         let offset = scrollView.height
         let index = Int((scrollView.contentOffset.y / offset).rounded())
         pageControl.currentPage = index
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if viewModel.shouldLoadMore(at: indexPath) {
+            viewModel.fetch(isLoadMore: true)
+        }
     }
 }
 
