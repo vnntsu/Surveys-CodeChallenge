@@ -1,15 +1,23 @@
 //
-//  SurveyCellViewModel.swift
+//  SurveyItem.swift
 //  SurveysCodeChallenge
 //
-//  Created by Su Nguyen on 11/24/19.
+//  Created by Su Nguyen on 11/25/19.
 //  Copyright © 2019 Su Nguyen. All rights reserved.
 //
 
 import Foundation
 
-final class SurveyCellViewModel {
-    private let survey: Survey
+protocol SurveyItemable {
+    var survey: Survey { set get }
+
+    var title: String { get }
+    var description: String { get }
+    var imagePath: String { get }
+}
+
+class SurveyItem: SurveyItemable {
+    var survey: Survey
 
     var title: String {
         return survey.title.trimmed

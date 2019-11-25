@@ -10,9 +10,9 @@ import UIKit
 
 final class SurveyCell: UICollectionViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
 
     private var didAwake: Bool = false
 
@@ -34,3 +34,5 @@ final class SurveyCell: UICollectionViewCell {
         imageView.setImage(with: viewModel.imagePath)
     }
 }
+
+final class SurveyCellViewModel: SurveyItem { }
