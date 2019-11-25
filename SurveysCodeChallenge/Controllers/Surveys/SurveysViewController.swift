@@ -16,6 +16,13 @@ final class SurveysViewController: UIViewController {
 
     var viewModel: SurveysViewModel = SurveysViewModel()
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Configure.showDetailIdentifier, let controller = segue.destination as? SurveyDetailViewController {
+            guard let detailViewModel = try? viewModel.viewModelForItem(at: pageControl.currentPage) else { return }
+            controller.viewModel = detailViewModel
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -121,5 +128,12 @@ extension SurveysViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeue(withClass: SurveyCell.self, for: indexPath)
         cell.configure(with: cellViewModel)
         return cell
+    }
+}
+
+// MARK: - Define
+extension SurveysViewController {
+    private struct Configure {
+        static let showDetailIdentifier: String = "ShowSurveyDetail"
     }
 }

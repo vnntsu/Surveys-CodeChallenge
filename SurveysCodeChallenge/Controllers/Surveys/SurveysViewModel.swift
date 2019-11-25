@@ -45,7 +45,7 @@ final class SurveysViewModel {
             case .success(let data):
                 this.cannotLoadMore = data.isEmpty
                 this.surveys += data
-                this.page += isLoadMore ? 1 : 0
+                this.page += 1
                 if isLoadMore {
                     this.delegate?.viewModel(this, needsPerform: .didLoadMore)
                 } else {
@@ -65,11 +65,11 @@ extension SurveysViewModel {
         return surveys.count
     }
 
-    func viewModelForItem(at index: Int) throws -> SurveyCellViewModel {
+    func viewModelForItem(at index: Int) throws -> SurveyItem {
         guard surveys.indices.contains(index) else {
             throw Define.Error.Data.indexOutOfRange
         }
-        return SurveyCellViewModel(survey: surveys[index])
+        return SurveyItem(survey: surveys[index])
     }
 
     func shouldLoadMore(at indexPath: IndexPath) -> Bool {
