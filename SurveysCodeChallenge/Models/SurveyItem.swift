@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SurveyItemable {
-    var survey: Survey { set get }
+    var survey: Survey { get set }
 
     var title: String { get }
     var description: String { get }
@@ -17,7 +17,7 @@ protocol SurveyItemable {
 }
 
 class SurveyItem: SurveyItemable {
-    var survey: Survey
+    internal var survey: Survey
 
     var title: String {
         return survey.title.trimmed
