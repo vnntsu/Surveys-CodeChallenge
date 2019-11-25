@@ -64,19 +64,11 @@ extension SurveysViewModel {
     func numberOfItems(in section: Int = 0) -> Int {
         return surveys.count
     }
-
-    func cellViewModelForItem(at index: Int) throws -> SurveyCellViewModel {
+    func viewModelForItem(at index: Int) throws -> SurveyItem {
         guard surveys.indices.contains(index) else {
             throw Define.Error.Data.indexOutOfRange
         }
-        return SurveyCellViewModel(survey: surveys[index])
-    }
-
-    func viewModelForItem(at index: Int) throws -> SurveyDetailViewModel {
-        guard surveys.indices.contains(index) else {
-            throw Define.Error.Data.indexOutOfRange
-        }
-        return SurveyDetailViewModel(survey: surveys[index])
+        return SurveyItem(survey: surveys[index])
     }
 
     func shouldLoadMore(at indexPath: IndexPath) -> Bool {

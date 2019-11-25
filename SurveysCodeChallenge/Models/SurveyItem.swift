@@ -8,16 +8,8 @@
 
 import Foundation
 
-protocol SurveyItemable {
-    var survey: Survey { get set }
-
-    var title: String { get }
-    var description: String { get }
-    var imagePath: String { get }
-}
-
-class SurveyItem: SurveyItemable {
-    internal var survey: Survey
+final class SurveyItem {
+    private var survey: Survey
 
     var title: String {
         return survey.title.trimmed

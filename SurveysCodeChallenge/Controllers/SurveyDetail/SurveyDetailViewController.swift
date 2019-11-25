@@ -13,7 +13,7 @@ final class SurveyDetailViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
 
-    var viewModel: SurveyDetailViewModel?
+    var viewModel: SurveyItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,4 +29,3 @@ final class SurveyDetailViewController: UIViewController {
     }
 }
 
-final class SurveyDetailViewModel: SurveyItem { }

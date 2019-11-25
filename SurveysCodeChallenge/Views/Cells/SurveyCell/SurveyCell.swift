@@ -28,11 +28,9 @@ final class SurveyCell: UICollectionViewCell {
         imageView.image = nil
     }
 
-    func configure(with viewModel: SurveyCellViewModel) {
+    func configure(with viewModel: SurveyItem) {
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
         imageView.setImage(with: viewModel.imagePath)
     }
 }
-
-final class SurveyCellViewModel: SurveyItem { }

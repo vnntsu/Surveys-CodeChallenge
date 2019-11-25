@@ -124,7 +124,7 @@ extension SurveysViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cellViewModel = try? viewModel.cellViewModelForItem(at: indexPath.item) else { return UICollectionViewCell() }
+        guard let cellViewModel = try? viewModel.viewModelForItem(at: indexPath.item) else { return UICollectionViewCell() }
         let cell = collectionView.dequeue(withClass: SurveyCell.self, for: indexPath)
         cell.configure(with: cellViewModel)
         return cell
