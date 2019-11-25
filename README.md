@@ -6,6 +6,9 @@
 
 This is a Surveys application. Code challenge of Nimble.
 
+- Network services
+- Unit-testing
+
 ### Prerequisites
 
 - Xcode 10+
@@ -15,7 +18,7 @@ This is a Surveys application. Code challenge of Nimble.
 
 ### Installing
 
-Automated install by running scripts
+Automated installation by running scripts
 
 ```shell
 $ ./scripts/install
@@ -49,7 +52,7 @@ Or by manual
 
    
 
-## Demo
+## Screenshots
 
 | ![Screenshot1](./screenshots/screenshot.png) | ![Screenshot2](./screenshots/screenshot2.png) | ![Screenshot3](./screenshots/screenshot3.png) |
 | -------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
