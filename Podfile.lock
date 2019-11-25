@@ -1,15 +1,21 @@
 PODS:
-  - Alamofire (5.0.0-rc.3)
+  - Alamofire (4.9.1)
   - Kingfisher (5.10.1):
     - Kingfisher/Core (= 5.10.1)
   - Kingfisher/Core (5.10.1)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
   - Nimble (8.0.4)
   - Quick (2.2.0)
+  - Result (4.1.0)
   - SwiftLint (0.37.0)
 
 DEPENDENCIES:
-  - Alamofire (= 5.0.0-rc.3)
   - Kingfisher (~> 5.10)
+  - Moya (~> 13.0)
   - Nimble (~> 8.0)
   - Quick (~> 2.2)
   - SwiftLint (~> 0.35)
@@ -18,17 +24,21 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - Moya
     - Nimble
     - Quick
+    - Result
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Kingfisher: eb36b7dfcc78d60877051c92c119a2865972961a
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
 
-PODFILE CHECKSUM: 2f7db295e3b217f1b737f72f5d782b4067bed3be
+PODFILE CHECKSUM: 98e008e34a18147226d04263ec5a97b2a53b89af
 
 COCOAPODS: 1.8.4

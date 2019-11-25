@@ -1,7 +1,7 @@
 platform :ios, '10.0'
 
 def network_pods
-  pod 'Alamofire', '5.0.0-rc.3'
+  pod 'Moya', '~> 13.0'
 end
 
 def dev_pods
@@ -14,7 +14,7 @@ def test_pods
 end
 
 def util_pods
-    pod 'Kingfisher', '~> 5.10'
+  pod 'Kingfisher', '~> 5.10'
 end
 
 target 'SurveysCodeChallenge' do
