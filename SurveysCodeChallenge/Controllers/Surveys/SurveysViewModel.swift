@@ -64,6 +64,7 @@ extension SurveysViewModel {
     func numberOfItems(in section: Int = 0) -> Int {
         return surveys.count
     }
+
     func viewModelForItem(at index: Int) throws -> SurveyItem {
         guard surveys.indices.contains(index) else {
             throw Define.Error.Data.indexOutOfRange

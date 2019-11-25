@@ -28,4 +28,3 @@ final class SurveyDetailViewController: UIViewController {
         imageView.setImage(with: viewModel.imagePath)
     }
 }
-
