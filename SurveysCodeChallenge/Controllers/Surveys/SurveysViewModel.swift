@@ -17,17 +17,20 @@ final class SurveysViewModel {
 
     private var surveys: [Survey] = []
     private var page: Int = 1
-
     private var isLoading: Bool = false {
         didSet {
             delegate?.viewModel(self, needsPerform: .showLoading(isLoading))
         }
     }
-    private var cannotLoadMore = false
-
-    private var provider = SurveyProvider(provider: MoyaProvider<SurveyApi>(handleRefreshToken: true))
+    private var cannotLoadMore = true
+    private var provider: AnySurveyProvider = SurveyProvider(provider: MoyaProvider<SurveyApi>(refreshToken: true))
 
     weak var delegate: SurveysViewModelDelegate?
+
+    convenience init(provider: AnySurveyProvider) {
+        self.init()
+        self.provider = provider
+    }
 
     func fetch(isLoadMore: Bool = false, completion: (() -> Void)? = nil) {
         if isLoading, cannotLoadMore { return }
