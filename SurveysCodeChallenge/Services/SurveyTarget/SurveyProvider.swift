@@ -11,11 +11,11 @@ import Moya
 
 typealias SurveyCompletion = ((Result<[Survey], Error>) -> Void)
 
-final class SurveyProvider {
-    static var shared: SurveyProvider {
-        return SurveyProvider(provider: MoyaProvider<SurveyApi>())
-    }
+protocol AnySurveyProvider {
+    func get(page: Int, perPage: Int, completion: @escaping SurveyCompletion)
+}
 
+final class SurveyProvider: AnySurveyProvider {
     private let provider: MoyaProvider<SurveyApi>
 
     init(provider: MoyaProvider<SurveyApi>) {

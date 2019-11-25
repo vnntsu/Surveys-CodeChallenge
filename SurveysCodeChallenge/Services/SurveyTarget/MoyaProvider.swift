@@ -9,15 +9,47 @@
 import Moya
 
 extension MoyaProvider {
-    convenience init(handleRefreshToken: Bool) {
-        if handleRefreshToken {
-            self.init(requestClosure: MoyaProvider.endpointResolver())
+    convenience init(refreshToken: Bool) {
+        if refreshToken {
+            self.init(requestClosure: MoyaProvider<SurveyApi>.endpointResolver)
         } else {
             self.init()
         }
     }
 
-    static func endpointResolver() -> MoyaProvider<Target>.RequestClosure {
-        return AuthProvider(provider: MoyaProvider<SurveyApi>()).auth()
+    private class func endpointResolver(for endpoint: Endpoint, closure: @escaping RequestResultClosure) {
+        do {
+            let urlRequest = try endpoint.urlRequest()
+            auth(urlRequest, completion: closure)
+        } catch MoyaError.requestMapping(let url) {
+            closure(.failure(MoyaError.requestMapping(url)))
+        } catch MoyaError.parameterEncoding(let error) {
+            closure(.failure(MoyaError.parameterEncoding(error)))
+        } catch {
+            closure(.failure(MoyaError.underlying(error, nil)))
+        }
+    }
+
+    private class func auth(_ request: URLRequest, completion: @escaping RequestResultClosure) {
+        var request = request
+        if let session = Session.current, session.isValid() {
+            request.update(session: session)
+            completion(.success(request))
+        } else {
+            MoyaProvider<SurveyApi>().request(.auth) { (result) in
+                switch result {
+                case .success(let value):
+                    guard let session: Session = try? JSONDecoder().decode(Session.self, from: value.data) else {
+                        completion(.failure(MoyaError.encodableMapping(Define.Error.Service.mapping)))
+                        return
+                    }
+                    Session.current = session
+                    request.update(session: session)
+                    completion(.success(request))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
     }
 }
