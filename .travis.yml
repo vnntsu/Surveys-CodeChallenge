@@ -16,3 +16,4 @@ install:
   - ./scripts/install
 script:
   - ./scripts/lint
+  - bundle exec fastlane tests
