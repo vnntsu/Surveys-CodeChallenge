@@ -1,4 +1,4 @@
-scheme("SurveysCodeChallengeTests")
+scheme("SurveysCodeChallenge")
 device("iPhone 8")
 clean(true)
 skip_build(true)
