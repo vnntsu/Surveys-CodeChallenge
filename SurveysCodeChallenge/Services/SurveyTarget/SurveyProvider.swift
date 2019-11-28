@@ -18,19 +18,20 @@ protocol AnySurveyProvider {
 final class SurveyProvider: AnySurveyProvider {
     private let provider: MoyaProvider<SurveyApi>
 
-    init(provider: MoyaProvider<SurveyApi>) {
+    init(provider: MoyaProvider<SurveyApi> = MoyaProvider<SurveyApi>()) {
         self.provider = provider
+        self.provider.manager.retrier = RetrierHandler()
     }
 
     func get(page: Int, perPage: Int, completion: @escaping SurveyCompletion) {
         provider.request(.surveys(page: page, perPage: perPage), completion: { result in
             switch result {
             case .success(let value):
-                    guard let surveys: [Survey] = try? JSONDecoder().decode([Survey].self, from: value.data) else {
-                        completion(.failure(Define.Error.Service.mapping))
-                        return
-                    }
-                    completion(.success(surveys))
+                guard let surveys: [Survey] = try? JSONDecoder().decode([Survey].self, from: value.data) else {
+                    completion(.failure(Define.Error.Service.mapping))
+                    return
+                }
+                completion(.success(surveys))
             case .failure(let error):
                 completion(.failure(error))
             }

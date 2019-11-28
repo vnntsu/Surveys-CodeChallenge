@@ -56,7 +56,10 @@ extension SurveyApi: TargetType {
     }
 
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        return [
+            "Content-Type": "application/json",
+            "Authorization": "\(Session.current?.bearerToken ?? "")"
+        ]
     }
 
     var sampleData: Data {
