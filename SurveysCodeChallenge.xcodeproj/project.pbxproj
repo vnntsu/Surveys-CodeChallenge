@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7AA98A869AC64FEB62FE0369 /* Pods_SurveysCodeChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E9E9913EC544336821E8D6 /* Pods_SurveysCodeChallengeTests.framework */; };
 		901A795823901B220012BB60 /* RetrierHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A795723901B220012BB60 /* RetrierHandler.swift */; };
-		901A795B23902F0F0012BB60 /* MoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A795923902F0F0012BB60 /* MoyaProvider.swift */; };
 		901A795E23902FA30012BB60 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A795D23902FA30012BB60 /* URLRequest.swift */; };
 		90224BC62389B48F007677AC /* SurveysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90224BC12389B48F007677AC /* SurveysViewController.swift */; };
 		90224BC72389B48F007677AC /* SurveysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90224BC22389B48F007677AC /* SurveysViewModel.swift */; };
@@ -61,7 +60,6 @@
 		22C3FBE4DEE579B972183190 /* Pods_SurveysCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveysCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29EF74F70B531B5FF03E4611 /* Pods-SurveysCodeChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveysCodeChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-SurveysCodeChallengeTests/Pods-SurveysCodeChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		901A795723901B220012BB60 /* RetrierHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrierHandler.swift; sourceTree = "<group>"; };
-		901A795923902F0F0012BB60 /* MoyaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
 		901A795D23902FA30012BB60 /* URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		90224BC12389B48F007677AC /* SurveysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveysViewController.swift; sourceTree = "<group>"; };
 		90224BC22389B48F007677AC /* SurveysViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveysViewModel.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				904820EF238BE43300679655 /* AuthProvider.swift */,
-				901A795923902F0F0012BB60 /* MoyaProvider.swift */,
 				901A795723901B220012BB60 /* RetrierHandler.swift */,
 				904820EC238BE43300679655 /* SurveyApi.swift */,
 				904820ED238BE43300679655 /* SurveyProvider.swift */,
@@ -626,7 +623,6 @@
 				90E6A2B8238ADD2C00EC81A5 /* Survey.swift in Sources */,
 				904820F7238BE89A00679655 /* SurveyItem.swift in Sources */,
 				904820F3238BE43300679655 /* SurveyProvider.swift in Sources */,
-				901A795B23902F0F0012BB60 /* MoyaProvider.swift in Sources */,
 				901A795E23902FA30012BB60 /* URLRequest.swift in Sources */,
 				90224BC62389B48F007677AC /* SurveysViewController.swift in Sources */,
 				90E6A2D9238B000400EC81A5 /* UIViewController.swift in Sources */,

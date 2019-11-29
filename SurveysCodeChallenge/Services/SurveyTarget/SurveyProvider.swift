@@ -20,7 +20,9 @@ final class SurveyProvider: AnySurveyProvider {
 
     init(provider: MoyaProvider<SurveyApi> = MoyaProvider<SurveyApi>()) {
         self.provider = provider
-        self.provider.manager.retrier = RetrierHandler()
+        let retrier = RetrierHandler()
+        self.provider.manager.retrier = retrier
+        self.provider.manager.adapter = retrier
     }
 
     func get(page: Int, perPage: Int, completion: @escaping SurveyCompletion) {

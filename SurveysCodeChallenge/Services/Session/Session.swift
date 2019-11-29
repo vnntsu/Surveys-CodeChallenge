@@ -31,15 +31,6 @@ struct Session {
     var bearerToken: String {
         return "Bearer \(token)"
     }
-
-    var expired: Bool {
-        let expiredDate: Date = Date(timeIntervalSince1970: TimeInterval(createdAt + expires))
-        return expiredDate.isInPast
-    }
-
-    func isValid() -> Bool {
-        return token.isNotEmpty && !expired
-    }
 }
 
 // MARK: - Codable
@@ -56,11 +47,5 @@ extension Session: Codable {
 extension Session {
     private enum DefaultsKeys: String {
         case token = "current_token"
-    }
-}
-
-private extension Date {
-    var isInPast: Bool {
-        return self < Date()
     }
 }

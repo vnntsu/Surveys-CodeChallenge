@@ -9,19 +9,30 @@
 import Moya
 import Alamofire
 
-final class RetrierHandler: RequestRetrier {
+final class RetrierHandler: RequestRetrier, RequestAdapter {
     func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
         if let response = request.task?.response as? HTTPURLResponse {
             if response.isAuthExpired {
-                AuthProvider().auth { result in
+                AuthProvider().auth(completion: { result in
                     switch result {
-                    case .success(let isAuthSuccess): completion(isAuthSuccess, 0.0)
+                    case .success(let isAuthSuccess):
+                        if var request = request.task?.currentRequest {
+                            request.update(session: Session.current)
+                        }
+                        completion(isAuthSuccess, 0.0)
                     case .failure: completion(false, 0.0)
                     }
-                }
+                })
+            } else {
+                completion(false, 0.0)
             }
-            completion(false, 0.0)
         }
+    }
+
+    func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+        var urlRequest = urlRequest
+        urlRequest.update(session: Session.current)
+        return urlRequest
     }
 }
 

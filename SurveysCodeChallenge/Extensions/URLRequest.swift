@@ -11,7 +11,7 @@ import Foundation
 extension URLRequest {
     mutating func update(session: Session?) {
         if let session = session {
-            addValue(session.bearerToken, forHTTPHeaderField: "Authorization")
+            setValue(session.bearerToken, forHTTPHeaderField: "Authorization")
         }
     }
 }
