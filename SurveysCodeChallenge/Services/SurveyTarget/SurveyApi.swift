@@ -56,11 +56,17 @@ extension SurveyApi: TargetType {
     }
 
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        return [
+            "Content-Type": "application/json"
+        ]
     }
 
     var sampleData: Data {
         return Data()
+    }
+
+    var validationType: ValidationType {
+        return .successAndRedirectCodes
     }
 }
 

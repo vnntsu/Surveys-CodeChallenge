@@ -9,12 +9,9 @@
 import Foundation
 
 extension URLRequest {
-    mutating func update(session: Session) {
-        let type = TokenType(value: session.type)
-        switch type {
-        case .bearer:
-            let authValue = type.value + " " + session.token
-            addValue(authValue, forHTTPHeaderField: "Authorization")
+    mutating func update(session: Session?) {
+        if let session = session {
+            setValue(session.bearerToken, forHTTPHeaderField: "Authorization")
         }
     }
 }
