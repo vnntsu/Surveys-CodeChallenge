@@ -23,7 +23,7 @@ final class SurveysViewModel {
         }
     }
     private var cannotLoadMore = true
-    private var provider: AnySurveyProvider = SurveyProvider()
+    private var provider: AnySurveyProvider = SurveyProvider(provider: MoyaProvider<SurveyApi>(refreshToken: true))
 
     weak var delegate: SurveysViewModelDelegate?
 

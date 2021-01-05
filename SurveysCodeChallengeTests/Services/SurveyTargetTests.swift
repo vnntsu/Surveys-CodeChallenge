@@ -48,7 +48,7 @@ final class SurveyTargetTests: QuickSpec {
             context("when the response is success") {
                 beforeEach {
                     provider = MoyaProvider<SurveyApi>(endpointClosure: SurveyTargetTests.successEndpointClosure,
-                                                       requestClosure: MoyaProvider<SurveyApi>().requestClosure,
+                                                       requestClosure: MoyaProvider<SurveyApi>.init(refreshToken: true).requestClosure,
                                                        stubClosure: MoyaProvider.immediatelyStub)
                 }
 

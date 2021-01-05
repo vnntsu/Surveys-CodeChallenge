@@ -13,11 +13,11 @@ struct Session {
         set {
             let encoder = JSONEncoder()
             guard let value = newValue, let encoded = try? encoder.encode(value) else { return }
-            Keychain.shared.set(encoded, forKey: DefaultsKeys.token.rawValue)
+            UserDefaults.standard.set(encoded, forKey: DefaultsKeys.current.rawValue)
         }
         get {
             let decoder = JSONDecoder()
-            guard let data = Keychain.shared.getData(forKey: DefaultsKeys.token.rawValue),
+            guard let data = UserDefaults.standard.object(forKey: DefaultsKeys.current.rawValue) as? Data,
                 let current = try? decoder.decode(Session.self, from: data) else { return nil }
             return current
         }
@@ -28,8 +28,13 @@ struct Session {
     var expires: Int = 0
     var createdAt: Int = 0
 
-    var bearerToken: String {
-        return "Bearer \(token)"
+    var expired: Bool {
+        let expiredDate: Date = Date(timeIntervalSince1970: TimeInterval(createdAt + expires))
+        return expiredDate.isInPast
+    }
+
+    func isValid() -> Bool {
+        return token.isNotEmpty && !expired
     }
 }
 
@@ -46,6 +51,12 @@ extension Session: Codable {
 // MARK: - Define
 extension Session {
     private enum DefaultsKeys: String {
-        case token = "current_token"
+        case current
+    }
+}
+
+private extension Date {
+    var isInPast: Bool {
+        return self < Date()
     }
 }
